@@ -4,14 +4,14 @@ import {FormGroup,Label, Input, Button} from 'reactstrap'
 
 //import css
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './LoginForm.css'
+import './LoginArea.css'
 
-function LoginForm() {
+function LoginArea() {
     return(
-        <div className="LoginForm">
+        <div className="LoginArea">
             <Card className='login-container'>
                 <CardBody>
-					<div className="login-form-area">
+					<div className="login-form">
 						<h2>Login</h2>
 						<br />
 						<FormGroup className="form-group">
@@ -47,4 +47,4 @@ function LoginForm() {
     );
 }
 
-export default LoginForm;
+export default LoginArea;
