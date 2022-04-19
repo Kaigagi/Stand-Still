@@ -15,12 +15,12 @@ function News() {
     // a function to handle css when hover an article
     function hoverArticleIn() {
         const element = articleHoverEffect.current !;
-        element.style.display = "block";
+        element.style.animationName = "article-fade-in"
     }
 
     function hoverArticleOut() {
         const element = articleHoverEffect.current !;
-        element.style.display = "none";
+        element.style.animationName = "article-fade-out"
     }
 
     return(

@@ -18,6 +18,23 @@
     position: absolute;
     top: 0px;
     left: 0px;
-    opacity: 40%;
-    display: none;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    opacity: 0%;
+}
+
+@keyframes article-fade-in {
+    from {
+        opacity: 0%;
+    }to{
+        opacity: 35%;
+    }
+}
+
+@keyframes article-fade-out {
+    from {
+        opacity: 35%;
+    }to{
+        opacity: 0%;
+    }
 }

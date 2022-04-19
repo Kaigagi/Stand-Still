@@ -34,7 +34,7 @@
     position: absolute;
     top: -22px;
     left: -24px;
-    background-image: url(../../public/Assets/LogonDecor.png);
+    background-image: url(../../../../public/Assets/LogonDecor.png);
     background-size: cover;
     pointer-events: none;
 }

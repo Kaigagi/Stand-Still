@@ -1,6 +1,6 @@
 //import component
-import LoginArea from "../Parts/LoginArea";
-import News from '../Parts/News'
+import LoginArea from "./Parts/LoginArea";
+import News from './Parts/News'
 
 //import css
 import 'bootstrap/dist/css/bootstrap.min.css';
