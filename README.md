@@ -45,5 +45,5 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-## project detail
+## Project Detail
 Plan and schema: https://docs.google.com/spreadsheets/d/1uuIiW2lIbqZLs9kHHBP8yqX4IKlwpP6ckmi74VdTiZA/edit?usp=sharing
