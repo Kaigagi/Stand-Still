@@ -1,24 +1,39 @@
 //import lib
 import sign from 'jwt-encode';
+import { FormEvent, useState } from "react";
 
 //import component
 import {Card, CardBody} from "reactstrap"
-import {FormGroup,Label, Input, Button, Form} from 'reactstrap'
+import {FormGroup,Label, Input, Button, Form, FormFeedback} from 'reactstrap'
+import {useNavigate } from 'react-router-dom';
 
 //import css
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './LoginArea.css'
-import { FormEvent, useState } from "react";
 
 interface UserData{
 	email:string,
 	password: string,
 }
 
+//data receive from server after successfully verify
+interface FetchData{
+	msg:string,
+	body:{
+		accountKey:string,
+	}
+}
+
 function LoginArea() {
 	//user info
 	const [email,setUserName] = useState<string>("");
 	const [password,setPassword] = useState<string>("");
+
+	//email and password valid flag
+	const [isValid, setIsValid] = useState<boolean>(true)
+
+	//navigate to next page
+	const navigate = useNavigate();
 
 	function submitForm(e:FormEvent) {
 		e.preventDefault();
@@ -32,13 +47,22 @@ function LoginArea() {
 			method: 'POST',
 			headers:{
 				'Content-Type': 'application/json',
-				'accessKey': 'Quan dep zai'
+				'apiKey': 'Quan dep zai'
 			},
 			body: JSON.stringify({
 				jwt: jwt,
 			})
-		}).then((res)=>{
-			console.log(res.text().then((data)=>console.log(data)));
+		}).then(async (res)=>{
+			// check if verify success
+			if (res.status === 200) {
+				const fetchData: FetchData = JSON.parse(await res.text().then((data)=>data));
+				sessionStorage.setItem('accountKey',fetchData.body.accountKey);
+				return navigate('/');
+			}
+			
+			return setIsValid(false);
+		}).catch((err)=>{
+			console.error(err.message)
 		})
 	}
 
@@ -59,6 +83,7 @@ function LoginArea() {
 							placeholder="Enter Your Email"
 							type="email"
 							onChange={(e)=>{setUserName(e.target.value)}}
+							invalid = {!isValid}
 							/>
 						</FormGroup>
 						<FormGroup className="form-group">
@@ -71,7 +96,11 @@ function LoginArea() {
 							placeholder="Enter Your Password"
 							type="password"
 							onChange={(e)=>{setPassword(e.target.value)}}
+							invalid = {!isValid}
 							/>
+							<FormFeedback>
+								Incorrect email or password
+							</FormFeedback>
 						</FormGroup>
 						<br />
 						<Button className="login-button">
