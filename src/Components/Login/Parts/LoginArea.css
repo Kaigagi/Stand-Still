@@ -17,7 +17,7 @@
 .login-form{
     position: relative;
     background-color: #D8FF01;
-    height: 420px;
+    height: 550px;
     margin-top: 65px;
     margin-left: 10px;
     padding: 35px;
@@ -29,11 +29,11 @@
 
 .login-form::before{
     content: "";
-    width: 95%;
-    height: 62%;
+    width: 90%;
+    height: 58%;
     position: absolute;
     top: -22px;
-    left: -24px;
+    left: -30px;
     background-image: url(../../../../public/Assets/LogonDecor.png);
     background-size: cover;
     pointer-events: none;
@@ -42,6 +42,7 @@
 .form-group{
     width: 100%;
     z-index: 10px;
+    font-size: 1.125rem;
 }
 
 .login-button{

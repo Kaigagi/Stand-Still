@@ -1,0 +1,60 @@
+.JoinRoom{
+    width: 100%;
+    height: 100vh;
+    background-color: #2D2E3D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.room-board-area{
+    background-color: #9DB30D;
+    height: 70vh;
+    position: relative;
+}
+
+.room-board-area::before{
+    content: "ROOM";
+    font-size: 3rem;
+    color: white;
+    position: absolute;
+    top: -3.8rem;
+    left: 10px;
+}
+
+.row{
+    height: 100%;
+}
+
+.room-board, .room-detail{
+    padding: 15px;
+}
+
+.board, .detail{
+    width: 100%;
+    height: 100%;
+    background-color: #D8FF01
+}
+
+.room{
+    height: 3rem;
+    border: #2D2E3D solid 3px;
+    display: flex;
+    align-items: center;
+}
+
+.room:hover{
+    border: #9DB30D solid 3px;
+}
+
+.join-button{
+    background-color: #2D2E3D;
+    color: white;
+    width: 60%;
+}
+
+.room-detail-line{
+    background-color: #2D2E3D;
+    width: 80%;
+    margin-bottom: 3rem;
+}

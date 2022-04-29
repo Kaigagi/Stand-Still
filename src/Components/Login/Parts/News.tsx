@@ -25,7 +25,7 @@ function News() {
 
     return(
         <div className="News d-flex flex-column align-items-center">
-            <Title width= {500} height = {250} />
+            <Title width= {600} height = {250} />
             <br />
             <div className='title'>-----WHAT'S NEW-----</div>
             <br />

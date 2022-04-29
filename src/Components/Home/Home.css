@@ -1,0 +1,48 @@
+.Home{
+    background-color: #2D2E3D;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+/* blue: #0d6efd */
+.menu-bar-container{
+    color: #2D2E3D;
+    width: 100%;
+}
+
+.menu-bar-container a{
+    color: #2D2E3D;
+}
+
+.menu-bar{
+    background-color: #9DB30D;
+}
+
+.side-bar{
+    background-color: #9DB30D;
+    height: 100vh;
+    padding: 0px;
+    z-index: 2;
+    box-shadow: -2px 2px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+.main-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+
+}
+
+.button{
+    background-image: url(../../../public/Assets/Ellipse.png);
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    margin-left: 200px;
+}
