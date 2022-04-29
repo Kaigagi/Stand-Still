@@ -45,7 +45,16 @@
     font-size: 1.125rem;
 }
 
+.form-group input{
+    height: 3rem;
+}
+
 .login-button{
     width: 100%;
+    height: 3rem;
+    font-size: 1.125rem;
     background-color: #2D2E3D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

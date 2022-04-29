@@ -62,7 +62,7 @@ function LoginArea() {
 			
 			return setIsValid(false);
 		}).catch((err)=>{
-			console.error(err.message)
+			alert("somethings went wrong on the server")
 		})
 	}
 

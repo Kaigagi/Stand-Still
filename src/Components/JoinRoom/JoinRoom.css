@@ -45,6 +45,13 @@
 
 .room:hover{
     border: #9DB30D solid 3px;
+    color: #9DB30D;
+    cursor: pointer;
+}
+
+.room-clicked{
+    border: #9DB30D solid 3px;
+    color: #9DB30D;
 }
 
 .join-button{
