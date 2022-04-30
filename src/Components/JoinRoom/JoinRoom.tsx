@@ -29,11 +29,11 @@ function JoinRoom() {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        fetch('http://localhost:8080/api/v1/room/getRooms',{
+        fetch(`${process.env.REACT_APP_SERVICE_SERVER_HOST}${process.env.REACT_APP_API_VERSION}room/getRooms`,{
             method: 'GET',
 			headers:{
 				'Content-Type': 'application/json',
-				'apiKey': 'Quan dep zai'
+				'apiKey':`${process.env.REACT_APP_API_KEY}`,
 			},
         }).then(async (res)=>{
             const fetchData: FetchData = JSON.parse(await res.text().then((data)=>data));

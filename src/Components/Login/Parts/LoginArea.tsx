@@ -43,11 +43,11 @@ function LoginArea() {
 			password: password,
 		}
 		const jwt = sign(user, "Quan dep trai");
-		fetch('http://localhost:8080/api/v1/verify',{
+		fetch(`${process.env.REACT_APP_SERVICE_SERVER_HOST}${process.env.REACT_APP_API_VERSION}verify`,{
 			method: 'POST',
 			headers:{
 				'Content-Type': 'application/json',
-				'apiKey': 'Quan dep zai'
+				'apiKey': `${process.env.REACT_APP_API_KEY}`,
 			},
 			body: JSON.stringify({
 				jwt: jwt,

@@ -1,24 +1,32 @@
+//import css
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Home.css'
+
+//import package
 import {useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
+import {io} from 'socket.io-client';
 
 //import component
 import {Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink} from 'reactstrap'
 import { Card } from 'reactstrap';
 
-//import css
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './Home.css'
+//socket io
+const socket = io(`${process.env.REACT_APP_SERVICE_SERVER_HOST}`,{
+	// withCredentials: true,
+});
+
 
 function Home() {
     const navigate = useNavigate();
 
     useEffect(()=>{
 		const accountKey = sessionStorage.getItem('accountKey')!;
-		fetch('http://localhost:8080/api/v1/verify/account-key',{
+		fetch(`${process.env.REACT_APP_SERVICE_SERVER_HOST}${process.env.REACT_APP_API_VERSION}verify/account-key`,{
 			method: 'POST',
 			headers:{
 				'Content-Type': 'application/json',
-				'apiKey': 'Quan dep zai',
+				'apiKey': `${process.env.REACT_APP_API_KEY}`,
 				'accountKey': accountKey,
 			},
 		}).then((res)=>{
