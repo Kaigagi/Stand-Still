@@ -4,7 +4,7 @@ import './JoinRoom.css'
 //import component
 import {Button} from 'reactstrap'
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import RoomListElement from './Parts/RoomListElement';
 
 //interface
@@ -25,8 +25,7 @@ interface FetchData{
 
 function JoinRoom() {
     const [roomList, setRoomList] = useState<Array<roomInfo>>([])
-    const selectedRoom = useRef<string>('');
-    const roomBoard = useRef<HTMLDivElement>(null);
+    const [selectedRoom, setSelectedRoom] = useState<roomInfo>();
     const navigate = useNavigate();
 
     useEffect(()=>{
@@ -45,21 +44,32 @@ function JoinRoom() {
         }).catch(()=>{
             alert("somethings went wrong on server")
         })
-    },[roomList])
+    },[])
+
+    function setSelectedRoomWrapper(room:roomInfo) {
+        setSelectedRoom(room);
+    }
 
     return(
         <div className="JoinRoom">
             <div className="room-board-area container">
                 <div className="row">
                     <div className="room-board col-9">
-                        <div className="board p-3" ref={roomBoard}>
+                        <div className="board p-3">
                             {
                                 (()=>{
                                     let roomArray:Array<JSX.Element> = [];
+                                    let key = 0;
                                     roomList.forEach((roomData)=>{
                                         roomArray.push(
-                                            <RoomListElement roomName={roomData.roomName} selectedRoom={selectedRoom}></RoomListElement>
+                                            <RoomListElement 
+                                                key= {key}
+                                                roomData={roomData}
+                                                selectedRoom = {selectedRoom} 
+                                                setSelectedRoom={setSelectedRoomWrapper}
+                                            />
                                         )
+                                        key++;
                                     })
                                     return roomArray;
                                 })()
@@ -75,7 +85,7 @@ function JoinRoom() {
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quia vero eius exercitationem eos? Cumque ab voluptates aspernatur dolores non magnam, voluptatibus totam amet repellendus aliquam nam id quos. Sint.
                             </p>
                             <hr className='room-detail-line' />
-                            <Button className='join-button' onClick={()=>{navigate('/room/'+selectedRoom.current)}}>JOIN</Button>
+                            <Button className='join-button' onClick={()=>{if(selectedRoom !== undefined) navigate('/room/'+selectedRoom?.roomName)}}>JOIN</Button>
                         </div>
                     </div>
                 </div>
