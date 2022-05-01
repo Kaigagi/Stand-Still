@@ -24,7 +24,11 @@ interface FetchData{
 	}
 }
 
-function LoginArea() {
+interface Props{
+	setIsAuth: (isAuth: boolean) => void
+}
+
+function LoginArea({setIsAuth}: Props) {
 	//user info
 	const [email,setUserName] = useState<string>("");
 	const [password,setPassword] = useState<string>("");
@@ -57,9 +61,10 @@ function LoginArea() {
 			if (res.status === 200) {
 				const fetchData: FetchData = JSON.parse(await res.text().then((data)=>data));
 				sessionStorage.setItem('accountKey',fetchData.body.accountKey);
+				setIsAuth(true)
 				return navigate('/');
 			}
-			
+			setIsAuth(false);
 			return setIsValid(false);
 		}).catch((err)=>{
 			alert("somethings went wrong on the server")
