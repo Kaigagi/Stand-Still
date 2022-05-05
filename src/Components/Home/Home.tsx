@@ -5,43 +5,17 @@ import './Home.css'
 //import package
 import {useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
-import {io} from 'socket.io-client';
 
 //import component
 import {Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink} from 'reactstrap'
 import { Card } from 'reactstrap';
 
 //socket io
-const socket = io(`${process.env.REACT_APP_SERVICE_SERVER_HOST}`,{
-	// withCredentials: true,
-});
-
+import socket from '../../WebSocket/socket_event';
 
 function Home() {
     const navigate = useNavigate();
 
-    useEffect(()=>{
-		const accountKey = sessionStorage.getItem('accountKey')!;
-		fetch(`${process.env.REACT_APP_SERVICE_SERVER_HOST}${process.env.REACT_APP_API_VERSION}verify/account-key`,{
-			method: 'POST',
-			headers:{
-				'Content-Type': 'application/json',
-				'apiKey': `${process.env.REACT_APP_API_KEY}`,
-				'accountKey': accountKey,
-			},
-		}).then((res)=>{
-			// check if verify success
-			if (res.status === 200) {
-				return; 
-			}
-            navigate('/login');
-			return;
-		}).catch(()=>{
-			navigate('/login');
-		})
-		// disable warning
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	},[])
     return (
         <div className="Home">
             <div className="row">

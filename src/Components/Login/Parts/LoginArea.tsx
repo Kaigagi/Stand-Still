@@ -42,6 +42,12 @@ function LoginArea({setIsAuth}: Props) {
 	function submitForm(e:FormEvent) {
 		e.preventDefault();
 		window.history.back();
+
+		// if (process.env.NODE_ENV === "development") {
+		// 	setIsAuth(true);
+		// 	return navigate('/');
+		// }
+
 		const user: UserData = {
 			email: email,
 			password: password,
@@ -55,7 +61,8 @@ function LoginArea({setIsAuth}: Props) {
 			},
 			body: JSON.stringify({
 				jwt: jwt,
-			})
+			}),
+			credentials: 'include',
 		}).then(async (res)=>{
 			// check if verify success
 			if (res.status === 200) {

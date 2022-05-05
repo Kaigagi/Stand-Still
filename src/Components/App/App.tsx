@@ -39,7 +39,7 @@ function App() {
 					<Route path='/' element={<ProtectedRoute isAuth={isAuth} Element={<Home />}/>}></Route>
 					<Route path='/login' element={<Login setIsAuth={setIsAuthWrapper} />}></Route>
 					<Route path='/join-room' element={<ProtectedRoute isAuth={isAuth} Element={<JoinRoom />}/>}></Route>
-					<Route path='/room/:room-name' element={<ProtectedRoute isAuth={isAuth} Element={<Room />}/>}></Route>
+					<Route path='/room/:roomName' element={<ProtectedRoute isAuth={isAuth} Element={<Room />}/>}></Route>
 				</Routes>
 			</BrowserRouter>
 		</div>

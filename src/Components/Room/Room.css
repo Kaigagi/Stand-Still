@@ -1,0 +1,145 @@
+.Room{
+    background-color: #2D2E3D;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.setting-board{
+    position: relative;
+    background-color: #9DB30D;
+    width: 80%;
+    height: 80%;
+}
+
+.setting-board::before{
+    content: "";
+    width: 90%;
+    height: 60%;
+    position: absolute;
+    top: -20px;
+    left: -26px;
+    background-image: url(../../../public/Assets/LoginDecor2.png);
+    background-size: cover;
+    pointer-events: none;
+}
+
+.characters-selection{
+    margin-top: 80px;
+    height: 200px;
+    width: 500px;
+    border: #2D2E3D solid 2px;
+    background-color: #D8FF01;
+    overflow: hidden;
+    position: relative;
+    border-radius: 5px;
+}
+
+.character-slide{
+    width: 10000px;
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.characters{
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    margin-left: 5px;
+    margin-right: 5px;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.character-selected{
+    height: 150px;
+    width: 150px;
+}
+
+/* 9DB30D */
+.room-chat{
+    position: absolute;
+    bottom: 1.5rem;
+    background-color: #D8FF01;
+    width: 500px;
+    height: 30%;
+    border: #2D2E3D solid 2px;
+}
+
+.room-chat::after{
+    content: "";
+    width: 50%;
+    height: 60%;
+    position: absolute;
+    transform: rotate(180deg);
+    bottom: -20px;
+    right: -20px;
+    background-image: url(../../../public/Assets/LogonDecor.png);
+    background-size: cover;
+    pointer-events: none;
+}
+
+.teamA, .teamB{
+    position: relative;
+    perspective: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.teamA{
+    perspective-origin: 25vw 75vh;
+}
+
+.teamB{
+    perspective-origin: 0 75vh;
+}
+
+.player-sideA, .player-sideB{
+    background-color: #D8FF01;
+    width: 70%;
+    height: 3rem;
+    transform-style: preserve-3d;
+    margin-top: 2rem;
+}
+
+.player-sideA{
+    transform: rotate3d(0,1,0.1,20deg);
+    margin-left: 9.5rem;
+}
+
+.player-sideB{
+    transform: rotate3d(0,1,0.1,-20deg);
+    margin-right: 9.5rem;
+    display: flex;
+    align-items: end;
+}
+
+.button-ready{
+    margin-top: 2rem;
+    font-size: 2rem;
+    background-color: #D8FF01;
+    color: #2D2E3D;
+}
+
+.team-title-A, .team-title-B{
+    color: #D8FF01;
+    font-size: 3.5rem;
+}
+
+.team-title-A{
+    margin-left: 9.5rem;
+    transform: rotate3d(0,1,0.1,20deg);
+}
+
+.team-title-B{
+    margin-right: 9.5rem;
+    transform: rotate3d(0,1,0.1,-20deg);
+}
